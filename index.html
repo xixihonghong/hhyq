@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#FAF5EC" />
+<title>你在《后会友期》里是谁 · 友情人格测试</title>
+<meta name="description" content="32 道题，四分钟，测出你在友情里最像《后会友期》的哪一位嘉宾。" />
+<meta property="og:title" content="你在《后会友期》里是谁 · 友情人格测试" />
+<meta property="og:description" content="四对走散的旧友，八种没说出口的在乎。32 道题，看看在友情里你更像谁。" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23FAF5EC'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23D2802C' stroke-width='6'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="ambient" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+</div>
+
+<main id="app" class="app">
+
+  <!-- ============ 首页 ============ -->
+  <section class="screen screen--intro is-active" id="screen-intro">
+    <header class="intro-head">
+      <p class="eyebrow">非官方同人测试 · 灵感来自芒果 TV《后会友期》</p>
+      <h1 class="display">
+        四对走散的旧友，<br />
+        八种没说出口的在乎。
+      </h1>
+      <p class="lede">
+        有人画地为牢，有人把门关紧，有人当场把账结清。<br />
+        32 道题，看看在友情里，你更像谁。
+      </p>
+    </header>
+
+    <div class="fanwall" id="fanwall" aria-hidden="true"></div>
+
+    <div class="hero-cta">
+      <button class="btn btn--primary" id="btn-start" type="button">
+        <span>开始测试</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <ul class="meta-chips">
+        <li>32 道题</li>
+        <li>约 4 分钟</li>
+        <li>8 种结果</li>
+      </ul>
+    </div>
+
+    <div class="note-card">
+      <p>凭第一反应作答，不要反复推敲。没有好坏对错，越诚实越准。</p>
+      <p>结果仅供娱乐与自我了解，不构成任何心理诊断。</p>
+    </div>
+
+    <section class="pairs">
+      <h2 class="block-title">节目里的四对旧友</h2>
+      <ul class="pair-list" id="pair-list"></ul>
+    </section>
+
+    <button class="link-quiet" id="btn-peek" type="button">先看看 8 种人格 →</button>
+
+    <footer class="page-foot">灵感来自芒果 TV《后会友期》· 非官方同人作品<br>嘉宾图片来自公开报道与节目物料，版权归原作者所有</footer>
+  </section>
+
+  <!-- ============ 答题 ============ -->
+  <section class="screen screen--quiz" id="screen-quiz">
+    <header class="quiz-head">
+      <button class="icon-btn" id="btn-back" type="button" aria-label="返回上一题">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="quiz-meta">
+        <span class="quiz-count"><b id="q-index">1</b> / 32 题</span>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="32" aria-valuenow="0" id="progress">
+          <i id="progress-fill"></i>
+        </div>
+      </div>
+      <button class="icon-btn icon-btn--ghost" id="btn-exit" type="button" aria-label="退出并回到首页">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <div class="q-stage">
+      <p class="q-hint">凭第一反应作答 · 答错可以返回上一题</p>
+      <article class="q-card" id="q-card">
+        <p class="q-kicker" id="q-kicker">你在友情里的样子</p>
+        <h2 class="q-title" id="q-title">你如何记录任务？</h2>
+
+        <div class="poles">
+          <div class="pole pole--left">
+            <span class="pole-label" id="pole-left">制定清单</span>
+            <span class="pole-hint">← 1 分</span>
+          </div>
+          <div class="pole pole--right">
+            <span class="pole-label" id="pole-right">依靠记忆</span>
+            <span class="pole-hint">5 分 →</span>
+          </div>
+        </div>
+
+        <div class="scale" id="scale" role="radiogroup" aria-label="选择 1 到 5"></div>
+
+        <p class="scale-legend">1 = 完全偏向左 · 3 = 中立 · 5 = 完全偏向右</p>
+      </article>
+    </div>
+
+    <footer class="quiz-foot">
+      <button class="btn btn--ghost" id="btn-prev" type="button">上一题</button>
+      <span class="answered" id="answered">0 / 32 已作答</span>
+    </footer>
+  </section>
+
+  <!-- ============ 结果 ============ -->
+  <section class="screen screen--result" id="screen-result">
+    <div class="result-wrap" id="result-wrap"></div>
+  </section>
+</main>
+
+<!-- 全部人格 -->
+<div class="sheet" id="sheet" aria-hidden="true">
+  <div class="sheet-mask" data-close="sheet"></div>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="全部八种人格">
+    <header class="sheet-head">
+      <div>
+        <h3>八种人格</h3>
+        <p>四对旧友，八种处理友情的方式。</p>
+      </div>
+      <button class="icon-btn" data-close="sheet" type="button" aria-label="关闭">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+    <div class="sheet-body" id="guest-grid"></div>
+  </div>
+</div>
+
+<!-- 海报 -->
+<div class="sheet" id="poster" aria-hidden="true">
+  <div class="sheet-mask" data-close="poster"></div>
+  <div class="poster-panel" role="dialog" aria-modal="true" aria-label="分享海报">
+    <canvas id="poster-canvas" width="750" height="1180"></canvas>
+    <div class="poster-actions">
+      <button class="btn btn--primary" id="btn-download" type="button">保存图片</button>
+      <button class="btn btn--ghost" id="btn-copy" type="button">复制文案</button>
+      <button class="btn btn--text" data-close="poster" type="button">关闭</button>
+    </div>
+    <p class="poster-tip">手机端可长按图片保存</p>
+  </div>
+</div>
+
+<script src="js/assets.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
